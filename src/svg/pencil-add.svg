@@ -1,0 +1,5 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M15,15 L15,18 L12,18 L12,21 L9,21 L9,18 L6,18 L6,15 L3,15 L3,12 L6,12 L6,9 L9,9 L9,6 L12,6 L12,3 L15,3 L15,0 L21,0 L21,3 L24,3 L24,6 L24,9 L20,9 L20,12 L18,12 L18,15 L15,15 Z M21,18 L24,18 L24,21 L21,21 L21,24 L18,24 L18,21 L15,21 L15,18 L18,18 L18,15 L21,15 L21,18 Z M3,21 L6,21 L6,24 L3,24 L0,24 L0,18 L3,18 L3,21 Z" id="pencil-add"></path>
+</svg>

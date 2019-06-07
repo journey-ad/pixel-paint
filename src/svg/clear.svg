@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="29px" viewBox="0 0 28 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>clear</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sidebar" transform="translate(-14.000000, -174.000000)" fill="#FFFFFF">
+            <g id="menu" transform="translate(0.000000, 102.000000)">
+                <path d="M17,97 L17,87 L14,87 L14,83 L14,80 L14,76 L24,76 L24,72 L32,72 L32,76 L42,76 L42,80 L42,83 L42,87 L39,87 L39,97 L39,101 L17,101 L17,97 Z M21,97 L24,97 L24,90 L28,90 L28,97 L31,97 L31,90 L35,90 L35,87 L21,87 L21,97 Z M38,80 L18,80 L18,83 L38,83 L38,80 Z" id="clear"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>undo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Edit" transform="translate(-281.000000, -16.000000)" fill="#D46791">
+            <g id="header" transform="translate(-1.000000, -1.000000)">
+                <g id="tools" transform="translate(62.000000, 7.000000)">
+                    <path d="M232,18 L230,18 L230,14 L228,14 L228,12 L230,12 L230,10 L232,10 L232,16 L243,16 L243,18 L232,18 Z M232,28 L232,34 L230,34 L230,32 L228,32 L228,30 L230,30 L230,26 L232,26 L243,26 L243,28 L232,28 Z M243,30 L243,28 L245,28 L245,20 L247,20 L247,33 L245,33 L245,35 L243,35 L243,37 L239,37 L239,30 L243,30 Z M226,28 L228,28 L228,30 L226,30 L226,28 Z M243,18 L245,18 L245,20 L243,20 L243,18 Z M224,26 L226,26 L226,28 L224,28 L224,26 Z M222,24 L224,24 L224,26 L222,26 L222,24 Z M222,18 L224,18 L224,20 L222,20 L222,18 Z M224,16 L226,16 L226,18 L224,18 L224,16 Z M226,14 L228,14 L228,16 L226,16 L226,14 Z M220,20 L222,20 L222,24 L220,24 L220,20 Z" id="undo"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

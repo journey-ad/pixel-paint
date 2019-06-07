@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="370px" height="121px" viewBox="0 0 370 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>buttonDraw</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Edit" transform="translate(-2.000000, -542.000000)">
+            <g id="buttonDraw" transform="translate(2.000000, 542.000000)">
+                <rect id="draw" stroke="#000000" stroke-width="2" fill="#4F4759" x="1" y="12" width="368" height="108" rx="8"></rect>
+                <rect id="shadow" stroke="#000000" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="368" height="108" rx="8"></rect>
+                <g id="push" transform="translate(126.000000, 35.000000)">
+                    <rect id="dot" fill="#D46791" x="0" y="32" width="8" height="8"></rect>
+                    <path d="M0,8 L24,8 L24,32 L0,32 L0,8 Z M8,16 L8,24 L16,24 L16,16 L8,16 Z" id="p" fill="#4F4759"></path>
+                    <path d="M40,8 L40,24 L48,24 L48,8 L56,8 L56,32 L32,32 L32,8 L40,8 Z" id="u" fill="#4F4759"></path>
+                    <path d="M80,16 L80,24 L80,32 L64,32 L64,24 L72,24 L72,8 L80,8 L88,8 L88,16 L80,16 Z" id="s" fill="#4F4759"></path>
+                    <path d="M104,8 L104,24 L112,24 L112,8 L120,8 L120,32 L96,32 L96,8 L104,8 Z" id="h" fill="#4F4759" transform="translate(108.000000, 20.000000) scale(1, -1) translate(-108.000000, -20.000000) "></path>
+                    <rect id="dot" fill="#D46791" x="96" y="0" width="8" height="8"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

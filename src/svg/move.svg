@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="26px" viewBox="0 0 25 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>move</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Edit" transform="translate(-127.000000, -17.000000)" fill="#D46791">
+            <g id="header" transform="translate(-1.000000, -1.000000)">
+                <g id="tools" transform="translate(62.000000, 7.000000)">
+                    <path d="M89,20 L87,20 L85,20 L85,17 L84,17 L82,17 L82,13 L82,11 L91,11 L91,13 L91,20 L89,20 Z M89,18 L89,13 L84,13 L84,15 L87,15 L87,17 L87,18 L89,18 Z M75,13 L75,15 L75,17 L72,17 L72,18 L72,20 L68,20 L66,20 L66,11 L68,11 L75,11 L75,13 Z M73,13 L68,13 L68,18 L70,18 L70,15 L72,15 L73,15 L73,13 Z M82,35 L82,33 L82,31 L85,31 L85,30 L85,28 L89,28 L91,28 L91,37 L89,37 L82,37 L82,35 Z M84,35 L89,35 L89,30 L87,30 L87,33 L85,33 L84,33 L84,35 Z M68,28 L70,28 L72,28 L72,31 L73,31 L75,31 L75,35 L75,37 L66,37 L66,35 L66,28 L68,28 Z M68,30 L68,35 L73,35 L73,33 L70,33 L70,31 L70,30 L68,30 Z" id="move"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

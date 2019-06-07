@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>fill</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Edit" transform="translate(-228.000000, -16.000000)" fill="#D46791">
+            <g id="header" transform="translate(-1.000000, -1.000000)">
+                <g id="tools" transform="translate(62.000000, 7.000000)">
+                    <path d="M187,16 L189,16 L189,20 L187,20 L187,18 L185,18 L185,16 L183,16 L183,14 L187,14 L187,16 Z M179,12 L183,12 L183,14 L179,14 L177,14 L177,12 L179,12 Z M177,28 L175,28 L175,26 L191,26 L191,28 L189,28 L189,30 L187,30 L187,32 L185,32 L185,34 L181,34 L181,32 L179,32 L179,30 L177,30 L177,28 Z M169,26 L173,26 L173,28 L167,28 L167,26 L167,22 L169,22 L169,26 Z M169,20 L171,20 L171,22 L169,22 L169,20 Z M171,18 L173,18 L173,20 L171,20 L171,18 Z M173,16 L175,16 L175,18 L173,18 L173,16 Z M175,14 L177,14 L177,16 L175,16 L175,14 Z M189,12 L191,12 L191,14 L189,14 L189,12 Z M189,20 L191,20 L191,22 L189,22 L189,20 Z M191,22 L193,22 L193,24 L191,24 L191,22 Z M191,28 L193,28 L193,30 L191,30 L191,28 Z M189,30 L191,30 L191,32 L189,32 L189,30 Z M187,32 L189,32 L189,34 L187,34 L187,32 Z M185,34 L187,34 L187,36 L185,36 L185,34 Z M179,34 L181,34 L181,36 L179,36 L179,34 Z M177,32 L179,32 L179,34 L177,34 L177,32 Z M175,30 L177,30 L177,32 L175,32 L175,30 Z M173,28 L175,28 L175,30 L173,30 L173,28 Z M181,36 L185,36 L185,38 L181,38 L181,36 Z M193,24 L195,24 L195,28 L193,28 L193,24 Z M191,14 L193,14 L193,20 L191,20 L191,14 Z M183,10 L189,10 L189,12 L183,12 L183,10 Z" id="fill"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

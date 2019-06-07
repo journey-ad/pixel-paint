@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+
+const Artwork = (resolve) => {
+  import(/* webpackChunkName: "artwork" */ './views/artwork.vue').then((module) => {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
@@ -8,8 +13,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: '/artwork'
+    },
+    {
+      path: '/artwork',
+      name: 'artwork',
+      component: Artwork
     },
     {
       path: '/about',
