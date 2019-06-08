@@ -1,6 +1,6 @@
 <template>
   <div class="artwork">
-    <new-canvas></new-canvas>
+    <add-new @setNewCanvasShow="setNewCanvasShow"></add-new>
     <div class="artwork-list">
       <canvas-item
         v-for="(item,index) in artwork"
@@ -11,16 +11,20 @@
         :brushes="item.brushes"
       ></canvas-item>
     </div>
+    <new-canvas v-if="isNewCanvasShow" @setNewCanvasShow="setNewCanvasShow"></new-canvas>
   </div>
 </template>
 
 <script>
-import NewCanvas from "@/components/artwork/new-canvas";
+import AddNew from "@/components/artwork/add-new";
 import CanvasItem from "@/components/artwork/canvas-item";
+import NewCanvas from "@/components/artwork/new-canvas";
 export default {
   data() {
     return {
-      artwork: [ // mock data
+      isNewCanvasShow: false,
+      artwork: [
+        // mock data
         {
           title: "Canvas1",
           size: 16,
@@ -113,6 +117,9 @@ export default {
     };
   },
   methods: {
+    setNewCanvasShow(flag) {
+      this.isNewCanvasShow = flag;
+    },
     getRandomColor() {
       let result = [];
       for (let i = 0; i < 16; i++) {
@@ -123,15 +130,12 @@ export default {
   },
   mounted() {},
   components: {
-    NewCanvas,
-    CanvasItem
+    AddNew,
+    CanvasItem,
+    NewCanvas
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.artwork {
-  .artwork-list {
-  }
-}
 </style>
