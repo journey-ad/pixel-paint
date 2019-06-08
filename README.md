@@ -4,6 +4,10 @@
 
 *功能和界面参考[dotpict](https://play.google.com/store/apps/details?id=net.dotpicko.dotpict)*
 
+[DEMO](https://journey-ad.github.io/pixel-paint)（非实时代码）
+
+![qrcode](https://api.imjad.cn/qrcode/?text=http%3A%2F%2Fjourney-ad.github.io%2Fpixel-paint&size=200&level=H)
+
 ### 应用原型图
 ![原型图](work/sketch.png)
 
