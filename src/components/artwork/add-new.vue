@@ -9,7 +9,7 @@
 export default {
   methods: {
     show() {
-      this.$emit("setNewCanvasShow", true);
+      this.$emit("toggleNewCanvasShow", true);
     }
   }
 };

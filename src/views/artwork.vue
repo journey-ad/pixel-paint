@@ -1,6 +1,6 @@
 <template>
-  <div class="artwork">
-    <add-new @setNewCanvasShow="setNewCanvasShow"></add-new>
+  <div class="artwork" :class="{'disable-move': isNewCanvasShow}">
+    <add-new @toggleNewCanvasShow="toggleNewCanvasShow"></add-new>
     <div class="artwork-list">
       <canvas-item
         v-for="(item,index) in artwork"
@@ -11,7 +11,7 @@
         :brushes="item.brushes"
       ></canvas-item>
     </div>
-    <new-canvas v-if="isNewCanvasShow" @setNewCanvasShow="setNewCanvasShow"></new-canvas>
+    <new-canvas v-if="isNewCanvasShow" @toggleNewCanvasShow="toggleNewCanvasShow"></new-canvas>
   </div>
 </template>
 
@@ -117,8 +117,8 @@ export default {
     };
   },
   methods: {
-    setNewCanvasShow(flag) {
-      this.isNewCanvasShow = flag;
+    toggleNewCanvasShow(flag) {
+      this.isNewCanvasShow = flag || false;
     },
     getRandomColor() {
       let result = [];
@@ -138,4 +138,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.disable-move {
+  position: fixed;
+  width: 100vw;
+}
 </style>
