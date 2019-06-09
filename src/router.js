@@ -7,6 +7,12 @@ const Artwork = (resolve) => {
   })
 }
 
+const Edit = (resolve) => {
+  import(/* webpackChunkName: "edit" */ './views/edit.vue').then((module) => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +25,11 @@ export default new Router({
       path: '/artwork',
       name: 'artwork',
       component: Artwork
+    },
+    {
+      path: '/edit',
+      name: 'edit',
+      component: Edit
     },
     {
       path: '/about',

@@ -6,7 +6,7 @@
           type="text"
           class="title"
           ref="canvasTitle"
-          value="New Canvas"
+          v-model="title"
           placeholder="Input Canvas Name"
           autocomplete="off"
           autofocus
@@ -36,28 +36,31 @@
         <div class="size">
           <div class="type">Size</div>
           <div class="size-list arrow">
-            <select name="size" id>
+            <select v-model="size">
               <option value="16" selected>Tiny(16 x 16 pixels)</option>
-              <option value="16">Extra Small(24 x 24 pixels)</option>
-              <option value="16">Small(32 x 32 pixels)</option>
-              <option value="16">Medium(48 x 48 pixels)</option>
-              <option value="16">Large(64 x 64 pixels)</option>
-              <option value="16">Extra Large(96 x 96 pixels)</option>
-              <option value="16">Huge(128 x 128 pixels)</option>
+              <option value="24">Extra Small(24 x 24 pixels)</option>
+              <option value="32">Small(32 x 32 pixels)</option>
+              <option value="48">Medium(48 x 48 pixels)</option>
+              <option value="64">Large(64 x 64 pixels)</option>
+              <option value="96">Extra Large(96 x 96 pixels)</option>
+              <option value="128">Huge(128 x 128 pixels)</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="create">create canvas</div>
+      <div class="create" @click="initCanvasInfo">create canvas</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   data() {
     return {
       isBrushListShow: false,
+      title: "New Canvas",
+      size: 16,
       brush: {},
       brushes: [
         {
@@ -172,6 +175,16 @@ export default {
     hide() {
       this.$emit("toggleNewCanvasShow", false);
     },
+    initCanvasInfo() {
+      this.setCanvasInfo({
+        title: this.title,
+        size: this.size,
+        brush: this.brush
+      });
+      this.$router.push({
+        path: "/edit"
+      });
+    },
     setBrush(brush) {
       this.brush = brush;
       this.toggleBrushListShow(false);
@@ -211,7 +224,8 @@ export default {
         offset += step;
         // console.log(offset);
       });
-    }
+    },
+    ...mapMutations(["setCanvasInfo"])
   },
   watch: {
     brush(newValue) {
