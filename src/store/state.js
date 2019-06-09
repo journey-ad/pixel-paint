@@ -5,5 +5,6 @@ export default {
   updated: -1,
   brush: {},
   currentBrushColor: '#ffffff',
+  isPushing: false,
   canvasData: []
 }

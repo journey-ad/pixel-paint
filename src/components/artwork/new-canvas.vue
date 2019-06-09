@@ -179,6 +179,7 @@ export default {
       this.setCanvasInfo({
         title: this.title,
         size: this.size,
+        created: Date.now(),
         brush: this.brush
       });
       this.$router.push({

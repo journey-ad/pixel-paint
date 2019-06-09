@@ -14,6 +14,7 @@
       @click.native="selectStart"
       @mouseup.native="selectEnd"
     ></icon>
+    <div class="mask"></div>
   </div>
 </template>
 
@@ -74,13 +75,22 @@ export default {
 .brush-list {
   display: flex;
   justify-content: space-around;
-  padding-top: 10px;
+  padding: 10px;
+  width: 375px;
   .brush {
     width: 20px;
-    height: 220px;
+    height: 520px;
+    transition: transform 0.2s;
     &.active {
       transform: translateY(-10px);
     }
+  }
+  .mask {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 120px;
+    background: $white-color;
   }
 }
 </style>

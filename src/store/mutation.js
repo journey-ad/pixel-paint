@@ -6,5 +6,8 @@ export default {
   },
   setCurrentBrushColor (state, color) {
     state.setCurrentBrushColor = color
+  },
+  setPushing (state, flag) {
+    state.isPushing = flag
   }
 }

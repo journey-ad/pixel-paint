@@ -32,11 +32,11 @@ export default {};
 .header-bar {
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 50px;
   border-bottom: 1px solid $border-color-edit;
   .preview {
-    width: 56px;
-    height: 56px;
+    width: 42px;
+    height: 42px;
     background: $item-color;
     margin: 0 4px;
     border: 1px solid $black-color;
@@ -47,8 +47,8 @@ export default {};
     justify-content: space-around;
     align-items: center;
     .icon {
-      width: 28px;
-      height: 28px;
+      width: 22px;
+      height: 22px;
       color: $theme-color;
       svg {
         width: 100%;
