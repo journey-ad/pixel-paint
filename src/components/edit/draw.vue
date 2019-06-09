@@ -1,6 +1,22 @@
 <template>
-  <div class="draw" :class="{'no-data': !canvasData.length}">
+  <div class="draw">
     <canvas ref="canvas"></canvas>
+    <div class="meta" v-show="!artwork.canvasData.length">
+      NO DATA :-(
+      <br>
+      <br>
+      id: {{artwork.id}}
+      <br>
+      title: {{artwork.title}}
+      <br>
+      size: {{artwork.size}}
+      <br>
+      created: {{artwork.created}}
+      <br>
+      updated: {{artwork.updated}}
+      <br>
+      brush title: {{artwork.brush.title}}
+    </div>
   </div>
 </template>
 
@@ -11,7 +27,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["canvasData"])
+    ...mapState(["artwork"])
   }
 };
 </script>
@@ -29,12 +45,10 @@ export default {
     width: 100%;
     height: 100%;
   }
-  &.no-data::before {
-    content: "NO DATA :-(";
+  .meta {
     position: absolute;
-    color: $gray-color;
-    font-size: 22px;
-    font-weight: 800;
+    color: $black-color;
+    font-size: 12px;
   }
 }
 </style>

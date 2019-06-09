@@ -6,7 +6,7 @@
       :style="{color: color}"
       :index="String(index)"
       :currentIndex="String(currentIndex)"
-      v-for="(color, index) in brush.colors || Array(16).fill('#9b9b9b')"
+      v-for="(color, index) in artwork.brush.colors || Array(16).fill('#9b9b9b')"
       :key="index"
       @touchstart.native="selectStart"
       @touchmove.native="selectMove"
@@ -24,12 +24,12 @@ import _ from "lodash";
 export default {
   data() {
     return {
-      currentIndex: 0,
+      currentIndex: -1,
       width: -1
     };
   },
   computed: {
-    ...mapState(["brush"])
+    ...mapState(["artwork"])
   },
   methods: {
     computedIndex(e) {
@@ -52,7 +52,7 @@ export default {
       this.computedIndex(e);
     }, 50),
     selectEnd(e) {
-      const color = this.brush.colors[this.currentIndex];
+      const color = this.artwork.brush.colors[this.currentIndex];
       console.log(
         `选择画笔颜色 %c${color}`,
         `background: ${color}; color: ${this.complement(color)}`
@@ -67,6 +67,11 @@ export default {
         );
     },
     ...mapMutations(["setCurrentBrushColor"])
+  },
+  mounted() {
+    this.currentIndex = this.artwork.brush.colors.findIndex(item => {
+      return item === this.artwork.currentBrushColor;
+    });
   }
 };
 </script>

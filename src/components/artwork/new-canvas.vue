@@ -55,6 +55,7 @@
 
 <script>
 import { mapMutations } from "vuex";
+import uuid from "@/js/uuid";
 export default {
   data() {
     return {
@@ -176,11 +177,14 @@ export default {
       this.$emit("toggleNewCanvasShow", false);
     },
     initCanvasInfo() {
-      this.setCanvasInfo({
+      this.setArtworkInfo({
+        id: uuid(),
         title: this.title,
-        size: this.size,
+        size: +this.size,
         created: Date.now(),
-        brush: this.brush
+        updated: Date.now(),
+        brush: this.brush,
+        canvasData: []
       });
       this.$router.push({
         path: "/edit"
@@ -226,7 +230,7 @@ export default {
         // console.log(offset);
       });
     },
-    ...mapMutations(["setCanvasInfo"])
+    ...mapMutations(["setArtworkInfo"])
   },
   watch: {
     brush(newValue) {

@@ -2,10 +2,10 @@
   <div class="item" @click="initCanvasInfo">
     <div class="thumb"></div>
     <div class="info">
-      <div class="title">{{title}}</div>
+      <div class="title">{{artwork.title}}</div>
       <div class="meta">
-        <div class="size">Size: {{`${size} x ${size}`}}</div>
-        <div class="date">Created At: {{created}}</div>
+        <div class="size">Size: {{`${artwork.size} x ${artwork.size}`}}</div>
+        <div class="date">Created At: {{artwork.created}}</div>
       </div>
       <canvas class="color-chip" ref="colorChip"></canvas>
     </div>
@@ -18,14 +18,10 @@ export default {
   data() {
     return {};
   },
-  props: ["title", "size", "created", "brush"],
+  props: ["artwork"],
   methods: {
     initCanvasInfo() {
-      this.setCanvasInfo({
-        title: this.title,
-        size: this.size,
-        brush: this.brush
-      });
+      this.setArtworkInfo(this.artwork);
       this.$router.push({
         path: "/edit"
       });
@@ -55,10 +51,11 @@ export default {
         // console.log(offset);
       });
     },
-    ...mapMutations(["setCanvasInfo"])
+    ...mapMutations(["setArtworkInfo"])
   },
   mounted() {
-    this.generateColorChip(this.$refs.colorChip, this.brush.colors);
+    console.log(this.artwork);
+    this.generateColorChip(this.$refs.colorChip, this.artwork.brush.colors);
   }
 };
 </script>
