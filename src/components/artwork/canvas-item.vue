@@ -5,7 +5,7 @@
       <div class="title">{{artwork.title}}</div>
       <div class="meta">
         <div class="size">Size: {{`${artwork.size} x ${artwork.size}`}}</div>
-        <div class="date">Created At: {{artwork.created}}</div>
+        <div class="date">Created At: {{formatDate(artwork.created)}}</div>
       </div>
       <canvas class="color-chip" ref="colorChip"></canvas>
     </div>
@@ -14,6 +14,7 @@
 
 <script>
 import { mapMutations } from "vuex";
+import moment from "moment";
 export default {
   data() {
     return {};
@@ -50,6 +51,9 @@ export default {
         offset += step;
         // console.log(offset);
       });
+    },
+    formatDate(ts) {
+      return moment(ts).format("YYYY-MM-DD HH:mm:ss");
     },
     ...mapMutations(["setArtworkInfo"])
   },
