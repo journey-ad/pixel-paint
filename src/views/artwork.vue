@@ -124,7 +124,13 @@ export default {
     }
   },
   mounted() {
-    this.artworks = loadArtwork();
+    if (loadArtwork()) {
+      this.artworks = loadArtwork();
+    } else {
+      this.artworks.forEach(artwork => {
+        saveArtwork(artwork);
+      });
+    }
   },
   components: {
     AddNew,
