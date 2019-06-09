@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="item" @click="initCanvasInfo">
     <div class="thumb"></div>
     <div class="info">
       <div class="title">{{title}}</div>
@@ -13,38 +13,52 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   data() {
     return {};
   },
-  props: ["title", "size", "created", "brushes"],
+  props: ["title", "size", "created", "brush"],
   methods: {
-    generateColorChip(brushes) {
-      if (!brushes || !brushes.length) return;
+    initCanvasInfo() {
+      this.setCanvasInfo({
+        title: this.title,
+        size: this.size,
+        brush: this.brush
+      });
+      this.$router.push({
+        path: "/edit"
+      });
+    },
+    generateColorChip(colorChip, colors) {
+      if (!colors || !colors.length) return;
 
-      let colorChip = this.$refs.colorChip;
       let ctx = colorChip.getContext("2d");
 
       let width = colorChip.clientWidth,
         height = colorChip.clientHeight,
-        step = width / brushes.length,
+        step = width / colors.length,
         offset = 0;
+
+      if (!width || !height) return;
 
       colorChip.width = width;
       colorChip.height = height;
 
       // console.log(width, step);
 
-      brushes.forEach(color => {
+      ctx.clearRect(0, 0, width, height);
+      colors.forEach(color => {
         ctx.fillStyle = color;
         ctx.fillRect(offset, 0, step, width);
         offset += step;
         // console.log(offset);
       });
-    }
+    },
+    ...mapMutations(["setCanvasInfo"])
   },
   mounted() {
-    this.generateColorChip(this.brushes);
+    this.generateColorChip(this.$refs.colorChip, this.brush.colors);
   }
 };
 </script>

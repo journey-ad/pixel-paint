@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>palette</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Edit" transform="translate(-74.000000, -16.000000)" fill="#D46791">
-            <g id="header" transform="translate(-1.000000, -1.000000)">
-                <g id="tools" transform="translate(62.000000, 7.000000)">
-                    <path d="M13,20 L15,20 L15,32 L13,32 L13,20 Z M39,18 L41,18 L41,30 L39,30 L39,18 Z M37,14 L39,14 L39,18 L37,18 L37,14 Z M33,12 L37,12 L37,14 L33,14 L33,12 Z M19,12 L23,12 L23,14 L19,14 L19,12 Z M31,28 L35,28 L35,30 L31,30 L31,28 Z M35,30 L39,30 L39,32 L35,32 L35,30 Z M27,34 L29,34 L29,36 L27,36 L27,34 Z M17,14 L19,14 L19,16 L17,16 L17,14 Z M15,32 L17,32 L17,34 L15,34 L15,32 Z M17,34 L19,34 L19,36 L17,36 L17,34 Z M20,30 L24,30 L24,34 L20,34 L20,30 Z M18,24 L22,24 L22,28 L18,28 L18,24 Z M20,18 L24,18 L24,22 L20,22 L20,18 Z M25,14 L30,14 L30,18 L25,18 L25,14 Z M32,16 L36,16 L36,20 L32,20 L32,16 Z M19,36 L27,36 L27,38 L19,38 L19,36 Z M15,16 L17,16 L17,20 L15,20 L15,16 Z M29,30 L31,30 L31,34 L29,34 L29,30 Z M23,10 L33,10 L33,12 L23,12 L23,10 Z" id="palette"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M0,10 L2,10 L2,22 L0,22 L0,10 Z M26,8 L28,8 L28,20 L26,20 L26,8 Z M24,4 L26,4 L26,8 L24,8 L24,4 Z M20,2 L24,2 L24,4 L20,4 L20,2 Z M6,2 L10,2 L10,4 L6,4 L6,2 Z M18,18 L22,18 L22,20 L18,20 L18,18 Z M22,20 L26,20 L26,22 L22,22 L22,20 Z M14,24 L16,24 L16,26 L14,26 L14,24 Z M4,4 L6,4 L6,6 L4,6 L4,4 Z M2,22 L4,22 L4,24 L2,24 L2,22 Z M4,24 L6,24 L6,26 L4,26 L4,24 Z M7,20 L11,20 L11,24 L7,24 L7,20 Z M5,14 L9,14 L9,18 L5,18 L5,14 Z M7,8 L11,8 L11,12 L7,12 L7,8 Z M12,4 L17,4 L17,8 L12,8 L12,4 Z M19,6 L23,6 L23,10 L19,10 L19,6 Z M6,26 L14,26 L14,28 L6,28 L6,26 Z M2,6 L4,6 L4,10 L2,10 L2,6 Z M16,20 L18,20 L18,24 L16,24 L16,20 Z M10,0 L20,0 L20,2 L10,2 L10,0 Z" id="palette-copy"></path>
 </svg>

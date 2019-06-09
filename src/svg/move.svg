@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="26px" viewBox="0 0 25 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>move</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Edit" transform="translate(-127.000000, -17.000000)" fill="#D46791">
-            <g id="header" transform="translate(-1.000000, -1.000000)">
-                <g id="tools" transform="translate(62.000000, 7.000000)">
-                    <path d="M89,20 L87,20 L85,20 L85,17 L84,17 L82,17 L82,13 L82,11 L91,11 L91,13 L91,20 L89,20 Z M89,18 L89,13 L84,13 L84,15 L87,15 L87,17 L87,18 L89,18 Z M75,13 L75,15 L75,17 L72,17 L72,18 L72,20 L68,20 L66,20 L66,11 L68,11 L75,11 L75,13 Z M73,13 L68,13 L68,18 L70,18 L70,15 L72,15 L73,15 L73,13 Z M82,35 L82,33 L82,31 L85,31 L85,30 L85,28 L89,28 L91,28 L91,37 L89,37 L82,37 L82,35 Z M84,35 L89,35 L89,30 L87,30 L87,33 L85,33 L84,33 L84,35 Z M68,28 L70,28 L72,28 L72,31 L73,31 L75,31 L75,35 L75,37 L66,37 L66,35 L66,28 L68,28 Z M68,30 L68,35 L73,35 L73,33 L70,33 L70,31 L70,30 L68,30 Z" id="move"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="25px" height="26px" viewBox="0 0 25 26" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M23,9 L21,9 L19,9 L19,6 L18,6 L16,6 L16,2 L16,2.7554553e-16 L25,-2.7554553e-16 L25,2 L25,9 L23,9 Z M23,7 L23,2 L18,2 L18,4 L21,4 L21,6 L21,7 L23,7 Z M9,2 L9,4 L9,6 L6,6 L6,7 L6,9 L2,9 L0,9 L0,0 L2,0 L9,0 L9,2 Z M7,2 L2,2 L2,7 L4,7 L4,4 L6,4 L7,4 L7,2 Z M16,24 L16,22 L16,20 L19,20 L19,19 L19,17 L23,17 L25,17 L25,26 L23,26 L16,26 L16,24 Z M18,24 L23,24 L23,19 L21,19 L21,22 L19,22 L18,22 L18,24 Z M2,17 L4,17 L6,17 L6,20 L7,20 L9,20 L9,24 L9,26 L8.8817842e-16,26 L5.2078438e-16,24 L-7.65094759e-16,17 L2,17 Z M2,19 L2,24 L7,24 L7,22 L4,22 L4,20 L4,19 L2,19 Z" id="move-copy"></path>
 </svg>

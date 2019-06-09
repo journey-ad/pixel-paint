@@ -8,7 +8,7 @@
         :title="item.title"
         :size="item.size"
         :created="item.created"
-        :brushes="item.brushes"
+        :brush="item.brush"
       ></canvas-item>
     </div>
     <new-canvas v-if="isNewCanvasShow" @toggleNewCanvasShow="toggleNewCanvasShow"></new-canvas>
@@ -29,89 +29,107 @@ export default {
           title: "Canvas1",
           size: 16,
           created: 1231231321,
-          brushes: [
-            "#5c6891",
-            "#7395c0",
-            "#8bd5e7",
-            "#a4f0de",
-            "#c2f0b1",
-            "#f0f3c0",
-            "#fdeae0",
-            "#f6c7c3",
-            "#f3a6b2",
-            "#f38798",
-            "#e8718d",
-            "#df5c84",
-            "#b65d83",
-            "#805772",
-            "#604e61",
-            "#ffffff"
-          ]
+          brush: {
+            colors: [
+              "#5c6891",
+              "#7395c0",
+              "#8bd5e7",
+              "#a4f0de",
+              "#c2f0b1",
+              "#f0f3c0",
+              "#fdeae0",
+              "#f6c7c3",
+              "#f3a6b2",
+              "#f38798",
+              "#e8718d",
+              "#df5c84",
+              "#b65d83",
+              "#805772",
+              "#604e61",
+              "#ffffff"
+            ]
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: [
-            "#5c6891",
-            "#7395c0",
-            "#8bd5e7",
-            "#a4f0de",
-            "#c2f0b1",
-            "#f0f3c0",
-            "#fdeae0",
-            "#f6c7c3",
-            "#f3a6b2",
-            "#f38798",
-            "#e8718d",
-            "#df5c84",
-            "#b65d83",
-            "#805772",
-            "#604e61",
-            "#ffffff"
-          ]
+          brush: {
+            colors: [
+              "#5c6891",
+              "#7395c0",
+              "#8bd5e7",
+              "#a4f0de",
+              "#c2f0b1",
+              "#f0f3c0",
+              "#fdeae0",
+              "#f6c7c3",
+              "#f3a6b2",
+              "#f38798",
+              "#e8718d",
+              "#df5c84",
+              "#b65d83",
+              "#805772",
+              "#604e61",
+              "#ffffff"
+            ]
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         },
         {
           title: "Canvas1",
           size: 32,
           created: 1231231321,
-          brushes: this.getRandomColor()
+          brush: {
+            colors: this.getRandomColor()
+          }
         }
       ]
     };

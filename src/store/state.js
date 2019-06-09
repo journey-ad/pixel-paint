@@ -4,5 +4,6 @@ export default {
   created: -1,
   updated: -1,
   brush: {},
+  currentBrushColor: '#ffffff',
   canvasData: []
 }

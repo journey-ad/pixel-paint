@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>redo</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Edit" transform="translate(-332.000000, -17.000000)" fill="#D46791">
-            <g id="header" transform="translate(-1.000000, -1.000000)">
-                <g id="tools" transform="translate(62.000000, 7.000000)">
-                    <path d="M283,19 L281,19 L281,15 L279,15 L279,13 L281,13 L281,11 L283,11 L283,17 L294,17 L294,19 L283,19 Z M283,29 L283,35 L281,35 L281,33 L279,33 L279,31 L281,31 L281,27 L283,27 L294,27 L294,29 L283,29 Z M294,31 L294,29 L296,29 L296,21 L298,21 L298,34 L296,34 L296,36 L294,36 L294,38 L290,38 L290,31 L294,31 Z M277,29 L279,29 L279,31 L277,31 L277,29 Z M294,19 L296,19 L296,21 L294,21 L294,19 Z M275,27 L277,27 L277,29 L275,29 L275,27 Z M273,25 L275,25 L275,27 L273,27 L273,25 Z M273,19 L275,19 L275,21 L273,21 L273,19 Z M275,17 L277,17 L277,19 L275,19 L275,17 Z M277,15 L279,15 L279,17 L277,17 L277,15 Z M271,21 L273,21 L273,25 L271,25 L271,21 Z" id="redo" transform="translate(284.500000, 24.500000) scale(-1, 1) translate(-284.500000, -24.500000) "></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M15,6 L15,0 L17,0 L17,2 L19,2 L19,4 L17,4 L17,8 L15,8 L4,8 L4,6 L15,6 Z M17,22 L17,24 L15,24 L15,18 L4,18 L4,16 L17,16 L17,18 L17,20 L19,20 L19,22 L17,22 Z M4,25 L2,25 L2,23 L0,23 L0,10 L2,10 L2,18 L4,18 L4,20 L8,20 L8,27 L4,27 L4,25 Z M19,18 L21,18 L21,20 L19,20 L19,18 Z M21,16 L23,16 L23,18 L21,18 L21,16 Z M23,14 L25,14 L25,16 L23,16 L23,14 Z M25,10 L27,10 L27,14 L25,14 L25,10 Z M23,8 L25,8 L25,10 L23,10 L23,8 Z M21,6 L23,6 L23,8 L21,8 L21,6 Z M19,4 L21,4 L21,6 L19,6 L19,4 Z M2,8 L4,8 L4,10 L2,10 L2,8 Z" id="redo"></path>
 </svg>
