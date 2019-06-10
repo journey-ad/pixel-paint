@@ -57,7 +57,7 @@ export default {
         `选择画笔颜色 %c${color}`,
         `background: ${color}; color: ${this.complement(color)}`
       );
-      this.setCurrentBrushColor(color);
+      this.setArtworkInfo({ currentBrushColor: color });
     },
     complement(hex) {
       return;
@@ -66,7 +66,7 @@ export default {
           -6
         );
     },
-    ...mapMutations(["setCurrentBrushColor"])
+    ...mapMutations(["setArtworkInfo"])
   },
   mounted() {
     this.currentIndex = this.artwork.brush.colors.findIndex(item => {

@@ -1,6 +1,6 @@
 <template>
   <div class="header-bar">
-    <div class="preview"></div>
+    <div class="preview" :style="{backgroundImage: `url('${thumb}'`}"></div>
     <div class="tools">
       <div class="icon palette">
         <icon class="icon-palette" name="palette"></icon>
@@ -25,19 +25,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  props: ["thumb"]
+};
 </script>
 
 <style lang="scss" scoped>
 .header-bar {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 40px;
   border-bottom: 1px solid $border-color-edit;
   .preview {
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
     background: $item-color;
+    background-size: contain;
     margin: 0 4px;
     border: 1px solid $black-color;
   }

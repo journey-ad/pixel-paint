@@ -10,7 +10,9 @@ export default {
       colors: []
     },
     currentBrushColor: '',
-    canvasData: []
+    canvasData: [],
+    thumb: ''
   },
+  canvas: null,
   isPushing: false
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="item" @click="initCanvasInfo">
-    <div class="thumb"></div>
+    <div class="thumb" :style="{backgroundImage: `url('${artwork.thumb}'`}"></div>
     <div class="info">
       <div class="title">{{artwork.title}}</div>
       <div class="meta">
@@ -58,7 +58,6 @@ export default {
     ...mapMutations(["setArtworkInfo"])
   },
   mounted() {
-    console.log(this.artwork);
     this.generateColorChip(this.$refs.colorChip, this.artwork.brush.colors);
   }
 };
@@ -77,6 +76,7 @@ export default {
     width: 80px;
     height: 80px;
     background-color: #eee;
+    background-size: contain;
   }
   .info {
     position: relative;

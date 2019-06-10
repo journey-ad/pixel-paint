@@ -1,3 +1,5 @@
+import { JSONC } from './jsonc'
+
 class Storage {
   get (key, def) {
     let result = this.drive.getItem(key)
@@ -47,7 +49,7 @@ export const LocalStorage = new Local()
 export const SessionStorage = new Session()
 
 function serialize (val) {
-  return JSON.stringify(val)
+  return JSONC.pack(val)
 }
 
 function deserialize (val) {
@@ -55,7 +57,7 @@ function deserialize (val) {
     return undefined
   }
   try {
-    return JSON.parse(val)
+    return JSONC.unpack(val)
   } catch (e) {
     return val || undefined
   }
