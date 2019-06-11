@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="28px" viewBox="0 0 25 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>share</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Sidebar" transform="translate(-14.000000, -292.000000)" fill="#FFFFFF">
-            <g id="menu" transform="translate(0.000000, 102.000000)">
-                <path d="M24,201 L28,201 L28,207 L24,207 L24,212 L18,212 L18,207 L14,207 L14,201 L18,201 L18,196 L24,196 L24,201 Z M28,197 L32,197 L32,201 L28,201 L28,197 Z M28,207 L32,207 L32,211 L28,211 L28,207 Z M32,190 L39,190 L39,197 L32,197 L32,190 Z M32,211 L39,211 L39,218 L32,218 L32,211 Z" id="share"></path>
-            </g>
-        </g>
-    </g>
+<svg width="25px" height="28px" viewBox="0 0 25 28" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M10,11 L14,11 L14,17 L10,17 L10,22 L4,22 L4,17 L0,17 L0,11 L4,11 L4,6 L10,6 L10,11 Z M14,7 L18,7 L18,11 L14,11 L14,7 Z M14,17 L18,17 L18,21 L14,21 L14,17 Z M18,0 L25,0 L25,7 L18,7 L18,0 Z M18,21 L25,21 L25,28 L18,28 L18,21 Z" id="share"></path>
 </svg>

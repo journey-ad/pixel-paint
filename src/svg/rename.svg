@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="28px" height="29px" viewBox="0 0 28 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>rename</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Sidebar" transform="translate(-14.000000, -116.000000)" fill="#FFFFFF">
-            <g id="menu" transform="translate(0.000000, 102.000000)">
-                <path d="M21,17 L21,14 L38,14 L42,14 L42,43 L38,43 L18,43 L14,43 L14,21 L16,21 L16,17 L21,17 Z M24,19 L24,25 L18,25 L18,39 L38,39 L38,19 L24,19 Z M28,29 L32,29 L32,25 L36,25 L36,36 L32,36 L32,33 L28,33 L28,36 L24,36 L24,25 L28,25 L28,29 Z M28,21 L32,21 L32,25 L28,25 L28,21 Z" id="rename"></path>
-            </g>
-        </g>
-    </g>
+<svg width="28px" height="29px" viewBox="0 0 28 29" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M7,3 L7,0 L24,0 L28,0 L28,29 L24,29 L4,29 L0,29 L0,7 L2,7 L2,3 L7,3 Z M10,5 L10,11 L4,11 L4,25 L24,25 L24,5 L10,5 Z M14,15 L18,15 L18,11 L22,11 L22,22 L18,22 L18,19 L14,19 L14,22 L10,22 L10,11 L14,11 L14,15 Z M14,7 L18,7 L18,11 L14,11 L14,7 Z" id="rename"></path>
 </svg>

@@ -59,10 +59,10 @@ export default {
         for (let y = 0; y < this.canvasData[x].length; y++) {
           let color = this.canvasData[x][y];
 
-          this.ctx.mozImageSmoothingEnabled = false;
-          this.ctx.webkitImageSmoothingEnabled = false;
-          this.ctx.msImageSmoothingEnabled = false;
-          this.ctx.imageSmoothingEnabled = false;
+          // this.ctx.mozImageSmoothingEnabled = false;
+          // this.ctx.webkitImageSmoothingEnabled = false;
+          // this.ctx.msImageSmoothingEnabled = false;
+          // this.ctx.imageSmoothingEnabled = false;
 
           this.ctx.fillStyle = color;
           this.ctx.fillRect(offset_x, offset_y, step, step);
@@ -74,9 +74,9 @@ export default {
       }
       this.drawCanvasView();
 
-      this.raf = requestAnimationFrame(() => {
-        this.drawCanvas();
-      });
+      // this.raf = requestAnimationFrame(() => {
+      //   this.drawCanvas();
+      // });
     },
     drawCanvasView() {
       if (!this.canvasData || !this.widthView) return;
@@ -120,7 +120,7 @@ export default {
   width: 368px;
   height: 368px;
   margin: 4px auto;
-  border: 1px solid $black-color;
+  border: 2px solid $black-color;
   canvas {
     width: 100%;
     height: 100%;

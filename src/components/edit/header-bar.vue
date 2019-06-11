@@ -1,6 +1,6 @@
 <template>
   <div class="header-bar">
-    <div class="preview" :style="{backgroundImage: `url('${thumb}'`}"></div>
+    <div class="preview" :style="{backgroundImage: `url('${thumb}'`}" @click="showSidebar"></div>
     <div class="tools">
       <div class="icon palette">
         <icon class="icon-palette" name="palette"></icon>
@@ -29,7 +29,12 @@ export default {
   data() {
     return {};
   },
-  props: ["thumb"]
+  props: ["thumb"],
+  methods: {
+    showSidebar() {
+      this.$emit("toggleSidebarShow", true);
+    }
+  }
 };
 </script>
 

@@ -1,6 +1,12 @@
+@font-face {
+  font-family: "pixel";
+  src: url("../assets/BPdotsSquareBold.otf");
+}
+
 html,
 body {
-  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  font-family: 'pixel', 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  letter-spacing: -0.02em;
   line-height: 1;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
