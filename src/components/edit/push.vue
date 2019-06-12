@@ -62,4 +62,16 @@ export default {
     }
   }
 }
+@media screen and (min-width: 768px), screen and (max-height: 520px) {
+  .push {
+    height: 66px;
+    .top {
+      height: 56px;
+      .push-icon {
+        width: 90px;
+        height: 30px;
+      }
+    }
+  }
+}
 </style>

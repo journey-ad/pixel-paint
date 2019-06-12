@@ -98,4 +98,9 @@ export default {
     background: $white-color;
   }
 }
+@media screen and (min-width: 768px), screen and (max-height: 520px) {
+  .brush-list .mask {
+    height: 66px;
+  }
+}
 </style>

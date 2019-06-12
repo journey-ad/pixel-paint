@@ -2,7 +2,11 @@
   <div class="confirm">
     <div class="title">{{title}}</div>
     <div class="content">{{content}}</div>
-    <div class="buttons">
+    <div
+      class="buttons"
+      @touchstart="setActive($event.target, true)"
+      @touchend="setActive($event.target, false)"
+    >
       <div class="btn cancle" @click="close">Cancle</div>
       <div class="btn ok" @click="ok">OK</div>
     </div>
@@ -18,6 +22,9 @@ export default {
     },
     close() {
       this.$emit("return", false);
+    },
+    setActive(el, flag) {
+      flag ? el.classList.add("active") : el.classList.remove("active");
     }
   }
 };
@@ -42,7 +49,7 @@ export default {
     font-size: 20px;
     line-height: 44px;
     padding-left: 10px;
-    border-bottom: 1px solid $border-color-sidebar;
+    border-bottom: 2px solid $border-color-sidebar;
   }
   .content {
     font-size: 18px;
@@ -60,11 +67,16 @@ export default {
     bottom: 0;
     display: flex;
     .btn {
+      font-size: 18px;
       border: 2px solid $border-color-sidebar;
-      border-radius: 8px;
-      padding: 6px 10px;
+      padding: 5px 10px;
       margin: 8px 12px;
       box-shadow: 2px 2px 0 $black-color;
+      &.active {
+        box-shadow: inset 1px 1px 0 #4a4a4a;
+        background: $background-color;
+        transform: translate(2px, 2px);
+      }
     }
   }
 }
