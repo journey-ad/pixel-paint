@@ -7,5 +7,8 @@ export default {
   },
   setPushing (state, flag) {
     state.isPushing = flag
+  },
+  setScaleSize (state, size) {
+    state.scaleSize = Math.min(Math.max(16, size), state.artwork.size)
   }
 }

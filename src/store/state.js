@@ -14,5 +14,6 @@ export default {
     thumb: ''
   },
   canvas: null,
-  isPushing: false
+  isPushing: false,
+  scaleSize: -1
 }

@@ -45,8 +45,8 @@ export default {
   methods: {
     initCanvas() {
       this.canvas = document.createElement("canvas");
-      this.canvas.width = 128;
-      this.canvas.height = 128;
+      this.canvas.width = this.artwork.size;
+      this.canvas.height = this.artwork.size;
 
       this.setCanvas(this.canvas);
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="draw">
     <canvas ref="canvas"></canvas>
-    <div class="meta" v-show="!artwork.canvasData || !artwork.canvasData.length">
+    <div class="meta" v-if="!artwork.canvasData || !artwork.canvasData.length">
       NO DATA :-(
       <br>
       <br>
@@ -17,11 +17,13 @@
       <br>
       brush title: {{artwork.brush.title}}
     </div>
+    <grid :size="scaleSize"></grid>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import Grid from "./grid";
+import { mapState, mapMutations, mapGetters } from "vuex";
 import { clearInterval } from "timers";
 export default {
   data() {
@@ -43,16 +45,16 @@ export default {
     ctx() {
       return this.canvas.getContext("2d");
     },
-    ...mapState(["canvas", "artwork"])
+    ...mapState(["canvas", "artwork"]),
+    ...mapGetters(["scaleSize"])
   },
   methods: {
     drawCanvas() {
       if (!this.canvasData || !this.widthView) return;
 
-      this.ctx.clearRect(0, 0, 128, 128);
+      this.ctx.clearRect(0, 0, this.artwork.size, this.artwork.size);
 
-      let step = 128 / this.artwork.size,
-        offset_x = 0,
+      let offset_x = 0,
         offset_y = 0;
 
       for (let x = 0; x < this.canvasData.length; x++) {
@@ -65,18 +67,18 @@ export default {
           // this.ctx.imageSmoothingEnabled = false;
 
           this.ctx.fillStyle = color;
-          this.ctx.fillRect(offset_x, offset_y, step, step);
-          offset_x += step;
+          this.ctx.fillRect(offset_x, offset_y, 1, 1);
+          offset_x += 1;
           // console.log(offset_x, offset_y);
         }
         offset_x = 0;
-        offset_y += step;
+        offset_y += 1;
       }
       this.drawCanvasView();
 
-      // this.raf = requestAnimationFrame(() => {
-      //   this.drawCanvas();
-      // });
+      this.raf = requestAnimationFrame(() => {
+        this.drawCanvas();
+      });
     },
     drawCanvasView() {
       if (!this.canvasData || !this.widthView) return;
@@ -90,9 +92,20 @@ export default {
       this.ctxView.msImageSmoothingEnabled = false;
       this.ctxView.imageSmoothingEnabled = false;
 
-      this.ctxView.drawImage(this.canvas, 0, 0, this.widthView, this.widthView);
+      this.ctxView.drawImage(
+        this.canvas,
+        0,
+        0,
+        this.scaleSize,
+        this.scaleSize,
+        0,
+        0,
+        this.widthView,
+        this.widthView
+      );
     },
     init() {
+      this.setScaleSize(this.artwork.size);
       this.drawCanvas();
       this.timer = setInterval(() => {
         this.setArtworkInfo({
@@ -100,7 +113,7 @@ export default {
         });
       }, 1000);
     },
-    ...mapMutations(["setArtworkInfo"])
+    ...mapMutations(["setArtworkInfo", "setScaleSize"])
   },
   mounted() {
     this.init();
@@ -108,12 +121,16 @@ export default {
   beforeDestroy() {
     cancelAnimationFrame(this.raf);
     window.clearInterval(this.timer);
+  },
+  components: {
+    Grid
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .draw {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
