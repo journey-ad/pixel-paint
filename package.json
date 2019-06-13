@@ -31,7 +31,6 @@
     "sass-loader": "^7.1.0",
     "sharp": "^0.22.1",
     "vue-svg-icon": "^1.2.9",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-bundle-analyzer": "^3.3.2"
+    "vue-template-compiler": "^2.6.10"
   }
 }

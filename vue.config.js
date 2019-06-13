@@ -1,5 +1,4 @@
 let webpack = require('webpack')
-let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 let LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 module.exports = {
@@ -18,8 +17,6 @@ module.exports = {
   chainWebpack: config => {
     config.plugin('ignore')
       .use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
-    config.plugin('analyzer')
-      .use(new BundleAnalyzerPlugin())
     config.plugin('loadshReplace')
       .use(new LodashModuleReplacementPlugin())
   }
