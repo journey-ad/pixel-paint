@@ -1,5 +1,7 @@
 # 像素绘板
 
+[![Build Status](https://www.travis-ci.org/journey-ad/pixel-paint.svg?branch=master)](https://www.travis-ci.org/journey-ad/pixel-paint)
+
 ## 开坑中
 
 *功能和界面参考[dotpict](https://play.google.com/store/apps/details?id=net.dotpicko.dotpict)*
