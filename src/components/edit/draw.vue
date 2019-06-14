@@ -48,6 +48,11 @@ export default {
     ...mapState(["canvas", "artwork"]),
     ...mapGetters(["scaleSize"])
   },
+  watch: {
+    scaleSize() {
+      this.drawCanvas();
+    }
+  },
   methods: {
     drawCanvas() {
       if (!this.canvasData || !this.widthView) return;
@@ -76,9 +81,9 @@ export default {
       }
       this.drawCanvasView();
 
-      this.raf = requestAnimationFrame(() => {
-        this.drawCanvas();
-      });
+      // this.raf = requestAnimationFrame(() => {
+      //   this.drawCanvas();
+      // });
     },
     drawCanvasView() {
       if (!this.canvasData || !this.widthView) return;
@@ -119,7 +124,7 @@ export default {
     this.init();
   },
   beforeDestroy() {
-    cancelAnimationFrame(this.raf);
+    // cancelAnimationFrame(this.raf);
     window.clearInterval(this.timer);
   },
   components: {
