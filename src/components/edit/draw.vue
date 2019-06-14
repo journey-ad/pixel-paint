@@ -18,16 +18,21 @@
       brush title: {{artwork.brush.title}}
     </div>
     <grid :size="scaleSize"></grid>
+    <touch @pinchzoomstart="pinchzoomstart" @pinchzoomchange="pinchzoomchange" @pinchzoomend="pinchzoomend"></touch>
   </div>
 </template>
 
 <script>
 import Grid from "./grid";
+import Touch from "./touch";
 import { mapState, mapMutations, mapGetters } from "vuex";
 import { clearInterval } from "timers";
 export default {
   data() {
-    return {};
+    return {
+      midpoint: null,
+      offset: { x: 0, y: 0 }
+    };
   },
   computed: {
     canvasView() {
@@ -54,6 +59,34 @@ export default {
     }
   },
   methods: {
+    pinchzoomstart(e) {
+      // console.log(e);
+      this.midpoint = {
+        x: Math.floor((e.midpoint.x / this.widthView) * this.artwork.size),
+        y: Math.floor((e.midpoint.y / this.widthView) * this.artwork.size)
+      };
+    },
+    pinchzoomchange(e) {
+      // console.log(e);
+      this.offset = {
+        x: Math.min(
+          Math.max(0, Math.floor(this.midpoint.x - this.scaleSize / 2)),
+          this.artwork.size - this.scaleSize
+        ),
+        y: Math.min(
+          Math.max(0, Math.floor(this.midpoint.y - this.scaleSize / 2)),
+          this.artwork.size - this.scaleSize
+        )
+      };
+      if (e.scale > 0.01) {
+        this.setScaleSize(this.scaleSize - 1);
+      } else if (e.scale < -0.01) {
+        this.setScaleSize(this.scaleSize + 1);
+      }
+    },
+    pinchzoomend(e) {
+      // console.log(e);
+    },
     drawCanvas() {
       if (!this.canvasData || !this.widthView) return;
 
@@ -99,8 +132,8 @@ export default {
 
       this.ctxView.drawImage(
         this.canvas,
-        0,
-        0,
+        this.offset.x,
+        this.offset.y,
         this.scaleSize,
         this.scaleSize,
         0,
@@ -128,7 +161,8 @@ export default {
     window.clearInterval(this.timer);
   },
   components: {
-    Grid
+    Grid,
+    Touch
   }
 };
 </script>
