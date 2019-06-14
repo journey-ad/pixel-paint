@@ -17,8 +17,13 @@
       <br>
       brush title: {{artwork.brush.title}}
     </div>
-    <grid :size="scaleSize"></grid>
-    <touch @pinchzoomstart="pinchzoomstart" @pinchzoomchange="pinchzoomchange" @pinchzoomend="pinchzoomend"></touch>
+    <grid v-if="isGridShow" :size="scaleSize"></grid>
+    <touch
+      @pinchzoomstart="pinchzoomstart"
+      @pinchzoomchange="pinchzoomchange"
+      @pinchzoomend="pinchzoomend"
+      @movechange="movechange"
+    ></touch>
   </div>
 </template>
 
@@ -50,15 +55,18 @@ export default {
     ctx() {
       return this.canvas.getContext("2d");
     },
-    ...mapState(["canvas", "artwork"]),
+    ...mapState(["canvas", "artwork", "isGridShow"]),
     ...mapGetters(["scaleSize"])
   },
   watch: {
     scaleSize() {
-      this.drawCanvas();
+      this.drawCanvasView();
     }
   },
   methods: {
+    limit(num, min, max) {
+      return Math.min(Math.max(min, num), max);
+    },
     pinchzoomstart(e) {
       // console.log(e);
       this.midpoint = {
@@ -68,15 +76,10 @@ export default {
     },
     pinchzoomchange(e) {
       // console.log(e);
+      let max = this.artwork.size - this.scaleSize;
       this.offset = {
-        x: Math.min(
-          Math.max(0, Math.floor(this.midpoint.x - this.scaleSize / 2)),
-          this.artwork.size - this.scaleSize
-        ),
-        y: Math.min(
-          Math.max(0, Math.floor(this.midpoint.y - this.scaleSize / 2)),
-          this.artwork.size - this.scaleSize
-        )
+        x: this.limit(Math.floor(this.midpoint.x - this.scaleSize / 2), 0, max),
+        y: this.limit(Math.floor(this.midpoint.y - this.scaleSize / 2), 0, max)
       };
       if (e.scale > 0.01) {
         this.setScaleSize(this.scaleSize - 1);
@@ -86,6 +89,17 @@ export default {
     },
     pinchzoomend(e) {
       // console.log(e);
+    },
+    movechange(e) {
+      console.log(e.x * this.artwork.size)
+      // console.log(e.x * this.artwork.size);
+      // let max = this.artwork.size - this.scaleSize;
+
+      // this.offset = {
+      //   x: this.limit(Math.floor(e.x * this.artwork.size - this.scaleSize / 2), 0, max),
+      //   y: this.limit(Math.floor(e.y * this.artwork.size - this.scaleSize / 2), 0, max)
+      // };
+      // this.drawCanvasView();
     },
     drawCanvas() {
       if (!this.canvasData || !this.widthView) return;

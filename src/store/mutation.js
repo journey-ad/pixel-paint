@@ -10,5 +10,8 @@ export default {
   },
   setScaleSize (state, size) {
     state.scaleSize = Math.min(Math.max(16, size), state.artwork.size)
+  },
+  setGridShow (state, flag) {
+    state.isGridShow = flag
   }
 }

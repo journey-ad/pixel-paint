@@ -3,22 +3,22 @@
     <div class="preview" :style="{backgroundImage: `url('${thumb}'`}" @click="showSidebar"></div>
     <div class="tools">
       <div class="icon palette">
-        <icon class="icon-palette" name="palette"></icon>
+        <icon class="icon-palette" name="palette" index="0"></icon>
       </div>
       <div class="icon move">
-        <icon class="icon-move" name="move"></icon>
+        <icon class="icon-move" name="move" index="1"></icon>
       </div>
-      <div class="icon grid">
-        <icon class="icon-grid" name="grid"></icon>
+      <div class="icon grid" :class="{active: isGridShow}">
+        <icon class="icon-grid" @click.native="toggleGridShow" name="grid" index="2"></icon>
       </div>
       <div class="icon fill">
-        <icon class="icon-fill" name="fill"></icon>
+        <icon class="icon-fill" name="fill" index="3"></icon>
       </div>
       <div class="icon undo">
-        <icon class="icon-undo" name="undo"></icon>
+        <icon class="icon-undo" name="undo" index="4"></icon>
       </div>
       <div class="icon redo">
-        <icon class="icon-redo" name="redo"></icon>
+        <icon class="icon-redo" name="redo" index="5"></icon>
       </div>
     </div>
   </div>
@@ -29,10 +29,19 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    isGridShow() {
+      return this.$store.state.isGridShow;
+    }
+  },
   props: ["thumb"],
   methods: {
     showSidebar() {
       this.$emit("toggleSidebarShow", true);
+    },
+    toggleGridShow() {
+      console.log(!this.isGridShow);
+      this.$store.commit("setGridShow", !this.isGridShow);
     }
   }
 };
@@ -61,6 +70,9 @@ export default {
       width: 22px;
       height: 22px;
       color: $theme-color;
+      &.active {
+        color: $theme-color-active;
+      }
       svg {
         width: 100%;
         height: 100%;
