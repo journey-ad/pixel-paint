@@ -1,5 +1,5 @@
 <template>
-  <div class="cursor" :style="{transform: `translate(${offset.x}px, ${offset.y}px)`}">
+  <div class="cursor" :style="{transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`}">
     <icon name="cursor" :style="{color: color}"></icon>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
   font-size: 0;
   top: -16px;
   left: -1px;
+  transition: transform 0.05s;
   svg {
     width: 16px;
     height: 16px;
