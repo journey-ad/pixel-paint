@@ -29,12 +29,19 @@
         @ok="setArtworkTitle"
         @close="setRenameShow(false)"
       ></rename>
+      <confirm
+        v-if="isConfirmShow"
+        title="Confirm"
+        content="Do you want to export the artwork?"
+        @return="confirmReturn"
+      ></confirm>
     </div>
   </transition>
 </template>
 
 <script>
 import Rename from "@/components/common/prompt";
+import Confirm from "@/components/common/confirm";
 import { mapState, mapMutations } from "vuex";
 import moment from "moment";
 export default {
@@ -42,6 +49,7 @@ export default {
   data() {
     return {
       isRenameShow: false,
+      isConfirmShow: false,
       menu: [
         {
           icon: "rename",
@@ -75,12 +83,20 @@ export default {
         case "rename":
           console.log("rename");
           this.setRenameShow(true);
+          break;
         case "clear":
-
+          break;
         case "export":
-
+          console.log("export");
+          this.isConfirmShow = true;
+          break;
         case "share":
+          break;
       }
+    },
+    confirmReturn(flag) {
+      this.isConfirmShow = false;
+      if (flag) this.$emit("exportArtwork");
     },
     hideSidebar() {
       this.setRenameShow(false);
@@ -106,7 +122,8 @@ export default {
     ...mapMutations(["setArtworkInfo"])
   },
   components: {
-    Rename
+    Rename,
+    Confirm
   }
 };
 </script>

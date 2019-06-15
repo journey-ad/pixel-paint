@@ -8,6 +8,7 @@
       :isSidebarShow="isSidebarShow"
       @toggleSidebarShow="toggleSidebarShow"
       @saveArtwork="save"
+      @exportArtwork="exportArtwork"
     ></sidebar>
     <comfirm
       v-show="confirm.show"
@@ -67,6 +68,30 @@ export default {
         this.confirm.closeable = true;
         this.$router.back();
       }
+    },
+    exportArtwork() {
+      let output = document.createElement("canvas"),
+        ctx = output.getContext("2d");
+
+      output.width = output.height = 1000;
+
+      ctx.mozImageSmoothingEnabled = false;
+      ctx.webkitImageSmoothingEnabled = false;
+      ctx.msImageSmoothingEnabled = false;
+      ctx.imageSmoothingEnabled = false;
+
+      ctx.drawImage(this.canvas, 0, 0, 1000, 1000);
+
+      let img = output.toDataURL("image/png"),
+        name = this.artwork.title;
+
+      this.downloadImage(img, name);
+    },
+    downloadImage(url, name) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = name;
+      a.dispatchEvent(new MouseEvent("click", {}));
     },
     ...mapMutations(["setArtworkInfo", "setCanvas"])
   },
