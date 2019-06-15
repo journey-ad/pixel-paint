@@ -18,6 +18,7 @@
       brush title: {{artwork.brush.title}}
     </div>
     <grid v-if="isGridShow" :size="scaleSize"></grid>
+    <cursor-point></cursor-point>
     <touch
       @pinchzoomstart="pinchzoomstart"
       @pinchzoomchange="pinchzoomchange"
@@ -29,6 +30,7 @@
 
 <script>
 import Grid from "./grid";
+import CursorPoint from "./cursor";
 import Touch from "./touch";
 import { mapState, mapMutations, mapGetters } from "vuex";
 import { clearInterval } from "timers";
@@ -91,7 +93,7 @@ export default {
       // console.log(e);
     },
     movechange(e) {
-      console.log(e.x * this.artwork.size)
+      console.log(e.x * this.artwork.size);
       // console.log(e.x * this.artwork.size);
       // let max = this.artwork.size - this.scaleSize;
 
@@ -176,6 +178,7 @@ export default {
   },
   components: {
     Grid,
+    CursorPoint,
     Touch
   }
 };
