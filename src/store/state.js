@@ -16,5 +16,5 @@ export default {
   canvas: null,
   isPushing: false,
   isGridShow: true,
-  scaleSize: -1
+  viewportSize: -1
 }

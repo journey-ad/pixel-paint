@@ -1,11 +1,12 @@
 <template>
-  <div class="cursor">
+  <div class="cursor" :style="{transform: `translate(${offset.x}px, ${offset.y}px)`}">
     <icon name="cursor" :style="{color: color}"></icon>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["offset"], // 使用transform的translate函数进行移动
   computed: {
     color() {
       return this.$store.state.artwork.currentBrushColor;
@@ -18,6 +19,8 @@ export default {
 .cursor {
   position: absolute;
   font-size: 0;
+  top: -16px;
+  left: -1px;
   svg {
     width: 16px;
     height: 16px;

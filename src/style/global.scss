@@ -11,6 +11,7 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   background: $background-color;
+  overscroll-behavior: none; // 禁止 Chrome 63+ 的下拉刷新行为
 }
 
 *,

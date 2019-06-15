@@ -13,43 +13,41 @@ import _ from "lodash";
 export default {
   data() {
     return {
-      rect: {},
-      start: [],
-      now: [],
-      scale: 1
+      start: [], // 开始触摸时的坐标
+      now: [], // 当前坐标
+      scale: 1 // 相对于上次的缩放比例
     };
   },
   methods: {
-    getDistance(p1, p2) {
+    getDistance(p1, p2) { // 计算两点距离
       let x = p2.pageX - p1.pageX,
         y = p2.pageY - p1.pageY;
       return Math.sqrt(x * x + y * y);
     },
-    getMidpoint(p1, p2) {
+    getMidpoint(p1, p2) { // 计算中点坐标
       var x = (p1.pageX + p2.pageX) / 2,
         y = (p1.pageY + p2.pageY) / 2;
       return { x, y };
     },
-    touchstart(e) {
-      this.start = e.touches;
+    touchstart(e) { // 触摸开始事件处理
+      this.start = e.touches; // 保存触摸开始点坐标
 
       let type;
-      if (e.touches.length === 1) {
-        type = "touch";
+      if (e.touches.length === 1) { // 记录事件种类
+        type = "touch"; // 一个点为触摸
       } else if (e.touches.length >= 1) {
-        type = "pinch";
+        type = "pinch"; // 一个点以上为手势
       }
 
-      if (type === "pinch") {
-        let midpoint = this.getMidpoint(this.start[0], this.start[1]);
-
-        this.$emit("pinchzoomstart", { start: this.start, midpoint });
-      } else if (type === "touch") {
-        this.$emit("movestart", e.touches[0]);
+      if (type === "pinch") { // 为手势
+        let midpoint = this.getMidpoint(this.start[0], this.start[1]); // 计算中点
+        this.$emit("pinchzoomstart", { start: this.start, midpoint }); // 触发pincezoomstart事件, 传入开始点和中点坐标
+      } else if (type === "touch") { // 为触摸
+        this.$emit("movestart", this.start[0]); // 触发movestart事件, 传入开始点坐标
       }
     },
-    touchmove: _.throttle(function(e) {
-      this.now = e.touches;
+    touchmove: _.throttle(function(e) { // 触摸移动事件处理
+      this.now = e.touches; // 保存当前点坐标
 
       let type;
       if (e.touches.length === 1) {
@@ -61,19 +59,21 @@ export default {
       if (type === "pinch") {
         let scale =
           this.getDistance(this.now[0], this.now[1]) /
-          this.getDistance(this.start[0], this.start[1]);
+          this.getDistance(this.start[0], this.start[1]); // 计算本次和上次手势事件双指距离的比
 
-        this.$emit("pinchzoomchange", { scale: scale - this.scale });
+        this.$emit("pinchzoomchange", { scale: scale - this.scale }); // 触发pinchzoomchange事件, 传入上述比值
 
-        this.scale = scale;
+        this.scale = scale; // 记录比值供下次对比
       } else if (type === "touch") {
-        this.$emit("movechange", {
-          x: (this.now[0].clientX - this.start[0].clientX - this.rect.left) / this.rect.width,
-          y: (this.now[0].clientY - this.start[0].clientY - this.rect.top) / this.rect.height
+        this.$emit("movechange", { // 触发movechange事件, 传入变化坐标偏移
+          x: this.now[0].clientX - this.start[0].clientX,
+          y: this.now[0].clientY - this.start[0].clientY
         });
+        this.start = this.now; // 借用this.start保存本次坐标供下次比对
       }
-    }, 20),
-    touchend(e) {
+    }, 50), // 节流函数
+    touchend(e) { // 触摸结束事件处理
+    // TODO: 似乎不生效, 待修正
       let type;
       if (e.touches.length === 1) {
         type = "touch";
@@ -90,11 +90,7 @@ export default {
       }
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.rect = this.$refs.touch.getBoundingClientRect();
-    });
-  }
+  mounted() {}
 };
 </script>
 
