@@ -47,7 +47,7 @@ export default {
       }
     },
     touchmove: _.throttle(function(e) { // 触摸移动事件处理
-      console.log(e)
+      // console.log(e)
       this.now = e.targetTouches; // 保存当前点坐标
 
       let type;
