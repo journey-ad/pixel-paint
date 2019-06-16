@@ -30,12 +30,12 @@ export default {
       return { x, y };
     },
     touchstart(e) { // 触摸开始事件处理
-      this.start = e.touches; // 保存触摸开始点坐标
+      this.start = e.targetTouches; // 保存触摸开始点坐标
 
       let type;
-      if (e.touches.length === 1) { // 记录事件种类
+      if (e.targetTouches.length === 1) { // 记录事件种类
         type = "touch"; // 一个点为触摸
-      } else if (e.touches.length >= 1) {
+      } else if (e.targetTouches.length >= 1) {
         type = "pinch"; // 一个点以上为手势
       }
 
@@ -47,12 +47,13 @@ export default {
       }
     },
     touchmove: _.throttle(function(e) { // 触摸移动事件处理
-      this.now = e.touches; // 保存当前点坐标
+      console.log(e)
+      this.now = e.targetTouches; // 保存当前点坐标
 
       let type;
-      if (e.touches.length === 1) {
+      if (e.targetTouches.length === 1) {
         type = "touch";
-      } else if (e.touches.length >= 1) {
+      } else if (e.targetTouches.length >= 1) {
         type = "pinch";
       }
 
@@ -75,18 +76,18 @@ export default {
     touchend(e) { // 触摸结束事件处理
     // TODO: 似乎不生效, 待修正
       let type;
-      if (e.touches.length === 1) {
+      if (e.targetTouches.length === 1) {
         type = "touch";
-      } else if (e.touches.length >= 1) {
+      } else if (e.targetTouches.length >= 1) {
         type = "pinch";
       }
 
       if (type === "pinch") {
-        this.now = e.touches;
+        this.now = e.targetTouches;
 
         this.$emit("pinchzoomend", this.now);
       } else if (type === "touch") {
-        this.$emit("moveend", e.touches[0]);
+        this.$emit("moveend", e.targetTouches[0]);
       }
     }
   },
