@@ -17,8 +17,9 @@
       <br>
       brush title: {{artwork.brush.title}}
     </div>
-    <grid v-if="isGridShow" :size="viewportSize"></grid>
-    <cursor-point :offset="cursorOffset"></cursor-point>
+    <grid v-if="loaded && isGridShow" :size="viewportSize"></grid>
+    <grid-highlight v-if="loaded" :width="widthView" :size="viewportSize" :offset="cursorOffset"></grid-highlight>
+    <cursor-point v-if="loaded" :offset="cursorOffset"></cursor-point>
     <touch
       @pinchzoomstart="pinchzoomstart"
       @pinchzoomchange="pinchzoomchange"
@@ -30,6 +31,7 @@
 
 <script>
 import Grid from "./grid";
+import GridHighlight from "./grid-highlight";
 import CursorPoint from "./cursor";
 import Touch from "./touch";
 import { mapState, mapMutations, mapGetters } from "vuex";
@@ -37,6 +39,7 @@ import { clearInterval } from "timers";
 export default {
   data() {
     return {
+      loaded: false,
       midpoint: null, // 双指手势中点坐标
       viewportOffset: { x: 0, y: 0 }, // 真实画布视口偏移值
       cursorOffset: { x: 0, y: 0 } // 游标偏移值
@@ -50,7 +53,7 @@ export default {
       return this.canvasView.getContext("2d"); // 显示画布 canvas 2d上下文
     },
     widthView() {
-      return this.canvasView.clientWidth; // 显示画布宽度
+      return this.canvasView ? this.canvasView.clientWidth : -1; // 显示画布宽度
     },
     canvasData() {
       return this.artwork.canvasData; // 作品点数据
@@ -87,9 +90,9 @@ export default {
       if (e.scale > 0.01 || e.scale < -0.01) {
         // 防抖,仅当每次移动坐标比例超过一定值才进行相应操作
         if (e.scale > 0) {
-          this.setViewportSize(this.viewportSize - 1); // 为放大手势则真实画布视口尺寸-1
+          this.setViewportSize(this.viewportSize - 2); // 为放大手势则真实画布视口尺寸-1
         } else if (e.scale < 0) {
-          this.setViewportSize(this.viewportSize + 1); // 为缩小手势则视口尺寸+1
+          this.setViewportSize(this.viewportSize + 2); // 为缩小手势则视口尺寸+1
         }
 
         let max = this.artwork.size - this.viewportSize; // 限制视口范围
@@ -196,7 +199,7 @@ export default {
     },
     drawCanvasView() {
       // 显示画布, 尺寸与屏幕宽度有关, 为真实dom
-      if (!this.canvasData || !this.widthView) return;
+      if (!this.canvasData || this.widthView === -1) return;
 
       this.canvasView.width = this.canvasView.height = this.widthView; // 设置画布尺寸为css尺寸
 
@@ -232,6 +235,8 @@ export default {
         x: this.widthView * 0.5, // 设置游标默认位置为正中
         y: this.widthView * 0.5
       };
+
+      this.loaded = true;
     },
     ...mapMutations(["setArtworkInfo", "setViewportSize"])
   },
@@ -244,6 +249,7 @@ export default {
   },
   components: {
     Grid,
+    GridHighlight,
     CursorPoint,
     Touch
   }
