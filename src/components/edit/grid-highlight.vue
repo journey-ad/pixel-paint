@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: ["width", "size", "offset"],
   computed: {
@@ -10,9 +11,12 @@ export default {
       return this.width / this.size;
     },
     trans() {
+      let [x1, x2] = this.getOffset(this.offset.x, this.single),
+        [y1, y2] = this.getOffset(this.offset.y, this.single);
+      this.setCurrentOffset({ x: x2, y: y2 });
       return {
-        x: this.getOffset(this.offset.x, this.single),
-        y: this.getOffset(this.offset.y, this.single)
+        x: x1,
+        y: y1
       };
     },
     style() {
@@ -25,18 +29,21 @@ export default {
   },
   methods: {
     getOffset(max, step) {
-      if (max === 0 || step === 0) return 0;
+      if (max === 0 || step === 0) return [0, 0];
 
-      let result = 0;
+      let result = 0,
+        count = 0;
       while (result + step < max) {
         result += step;
+        count++;
       }
 
-      return result;
-    }
+      return [result, count];
+    },
+    ...mapActions(["setCurrentOffset"])
   }
 };
-</script>
+</script>Ï
 
 <style lang="scss" scoped>
 .grid-highlight {

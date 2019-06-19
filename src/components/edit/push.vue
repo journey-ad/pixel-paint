@@ -20,14 +20,32 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["isPushing"])
+    ...mapState(["artwork", "isPushing", "viewportOffset", "currentOffset"])
   },
   methods: {
+    draw(target, color) {
+      let canvasData = this.artwork.canvasData;
+
+      this.pushHistory({
+        target: target,
+        before: canvasData[target.y][target.x],
+        after: color
+      });
+
+      canvasData[target.y][target.x] = color;
+      this.setArtworkInfo({ canvasData });
+    },
     push(flag) {
       console.log(`${flag ? "开始" : "结束"}绘制`);
+      let target = {
+        x: this.viewportOffset.x + this.currentOffset.x,
+        y: this.viewportOffset.y + this.currentOffset.y
+      };
+
+      this.draw(target, this.artwork.currentBrushColor);
       this.setPushing(flag);
     },
-    ...mapMutations(["setPushing"])
+    ...mapMutations(["setArtworkInfo", "setPushing", "pushHistory"])
   }
 };
 </script>

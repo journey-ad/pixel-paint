@@ -61,15 +61,19 @@ export default {
     ctx() {
       return this.canvas.getContext("2d"); // 真实画布 canvas 2d 上下文
     },
-    ...mapState(["canvas", "artwork", "isGridShow"]),
+    ...mapState(["canvas", "artwork", "isGridShow", "isPushing"]),
     ...mapGetters(["viewportSize"])
   },
   watch: {
     viewportOffset: {
-      handler() {
+      handler(val) {
         this.drawCanvasView(); // 视口发生变化后重新渲染显示画布
+        this.setViewportOffset(val);
       },
       deep: true // 偏移值为对象, 需进行深度监测
+    },
+    isPushing(val) {
+      if (val) this.drawCanvas();
     }
   },
   methods: {
@@ -238,7 +242,7 @@ export default {
 
       this.loaded = true;
     },
-    ...mapMutations(["setArtworkInfo", "setViewportSize"])
+    ...mapMutations(["setArtworkInfo", "setViewportSize", "setViewportOffset"])
   },
   mounted() {
     this.init();
