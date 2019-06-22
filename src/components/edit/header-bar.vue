@@ -14,25 +14,24 @@
       <div class="icon fill">
         <icon class="icon-fill" name="fill" index="3"></icon>
       </div>
-      <div class="icon undo">
-        <icon class="icon-undo" name="undo" index="4"></icon>
+      <div class="icon undo" :class="{disable: undoHistory.length === 0}">
+        <icon class="icon-undo" @click.native="undo" name="undo" index="4"></icon>
       </div>
-      <div class="icon redo">
-        <icon class="icon-redo" name="redo" index="5"></icon>
+      <div class="icon redo" :class="{disable: redoHistory.length === 0}">
+        <icon class="icon-redo" @click.native="redo" name="redo" index="5"></icon>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {};
   },
   computed: {
-    isGridShow() {
-      return this.$store.state.isGridShow;
-    }
+    ...mapState(["isGridShow", "artwork", "undoHistory", "redoHistory"])
   },
   props: ["thumb"],
   methods: {
@@ -42,7 +41,34 @@ export default {
     toggleGridShow() {
       console.log(!this.isGridShow);
       this.$store.commit("setGridShow", !this.isGridShow);
-    }
+    },
+    draw(target, color) {
+      let canvasData = this.artwork.canvasData;
+
+      canvasData[target.y][target.x] = color;
+      this.setArtworkInfo({ canvasData });
+    },
+    undo() {
+      let undoHistory = [...this.undoHistory],
+        last = undoHistory.pop();
+      this.UndoHistoryHandle({ action: "pop" });
+      this.RedoHistoryHandle({ action: "push", data: last });
+
+      this.draw(last.target, last.before);
+    },
+    redo() {
+      let redoHistory = [...this.redoHistory],
+        last = redoHistory.pop();
+      this.RedoHistoryHandle({ action: "pop" });
+      this.UndoHistoryHandle({ action: "push", data: last });
+
+      this.draw(last.target, last.after);
+    },
+    ...mapMutations([
+      "setArtworkInfo",
+      "UndoHistoryHandle",
+      "RedoHistoryHandle"
+    ])
   }
 };
 </script>
@@ -72,6 +98,10 @@ export default {
       color: $theme-color;
       &.active {
         color: $theme-color-active;
+      }
+      &.disable {
+        color: $theme-color-disabled;
+        pointer-events: none;
       }
       svg {
         width: 100%;

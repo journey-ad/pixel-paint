@@ -72,8 +72,9 @@ export default {
       },
       deep: true // 偏移值为对象, 需进行深度监测
     },
-    isPushing(val) {
-      if (val) this.drawCanvas();
+    canvasData() {
+      console.log("画布数据改变, 重绘画板");
+      this.drawCanvas();
     }
   },
   methods: {
@@ -231,9 +232,7 @@ export default {
       this.setViewportSize(this.artwork.size); // 设置默认视口大小为作品尺寸
       this.drawCanvas(); // 绘制真实画布
       this.timer = setInterval(() => {
-        this.setArtworkInfo({
-          thumb: this.canvas.toDataURL() // 每隔1000ms生成一次预览图
-        });
+        this.updateThumb(this.canvas.toDataURL()); // 每隔1000ms生成一次预览图
       }, 1000);
       this.cursorOffset = {
         x: this.widthView * 0.5, // 设置游标默认位置为正中
@@ -242,7 +241,12 @@ export default {
 
       this.loaded = true;
     },
-    ...mapMutations(["setArtworkInfo", "setViewportSize", "setViewportOffset"])
+    ...mapMutations([
+      "setArtworkInfo",
+      "updateThumb",
+      "setViewportSize",
+      "setViewportOffset"
+    ])
   },
   mounted() {
     this.init();

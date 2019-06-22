@@ -5,6 +5,9 @@ export default {
   setArtworkInfo (state, info) {
     state.artwork = info ? Object.assign({}, state.artwork, info) : {}
   },
+  updateThumb (state, thumb) {
+    state.artwork.thumb = thumb
+  },
   setPushing (state, flag) {
     state.isPushing = flag
   },
@@ -20,12 +23,30 @@ export default {
   setCurrentOffset (state, offset) {
     state.currentOffset = Object.assign({}, state.currentOffset, offset)
   },
-  pushHistory (state, action) {
-    if (typeof state.history === 'undefined') state.history = []
-    state.history.push(action)
+  UndoHistoryHandle (state, { action, data }) {
+    if (typeof state.undoHistory === 'undefined') state.undoHistory = []
+    switch (action) {
+      case 'push':
+        state.undoHistory.push(data)
+        break
+      case 'pop':
+        state.undoHistory.pop()
+        break
+      case 'clear':
+        state.undoHistory = []
+    }
   },
-  pushTempHistory (state, action) {
-    if (typeof state.tempHistory === 'undefined') state.tempHistory = []
-    state.tempHistory.push(action)
+  RedoHistoryHandle (state, { action, data }) {
+    if (typeof state.redoHistory === 'undefined') state.redoHistory = []
+    switch (action) {
+      case 'push':
+        state.redoHistory.push(data)
+        break
+      case 'pop':
+        state.redoHistory.pop()
+        break
+      case 'clear':
+        state.redoHistory = []
+    }
   }
 }

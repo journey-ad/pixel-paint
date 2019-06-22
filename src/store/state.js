@@ -11,14 +11,14 @@ export default {
     },
     currentBrushColor: '',
     canvasData: [],
-    thumb: '',
-    history: [],
-    tempHistory: []
+    thumb: ''
   },
   canvas: null,
   isPushing: false,
   isGridShow: true,
   viewportSize: -1,
   viewportOffset: { x: 0, y: 0 },
-  currentOffset: { x: 0, y: 0 }
+  currentOffset: { x: 0, y: 0 },
+  undoHistory: [],
+  redoHistory: []
 }

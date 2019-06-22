@@ -1,12 +1,5 @@
 <template>
-  <div
-    class="push"
-    @touchstart="push(true)"
-    @touchend="push(false)"
-    @mousedown="push(true)"
-    @mouseup="push(false)"
-    @contextmenu.prevent
-  >
+  <div class="push" @touchstart="push(true)" @touchend="push(false)" @contextmenu.prevent>
     <div class="top" :class="{active: isPushing}">
       <icon class="push-icon" name="push"></icon>
     </div>
@@ -26,26 +19,37 @@ export default {
     draw(target, color) {
       let canvasData = this.artwork.canvasData;
 
-      this.pushHistory({
-        target: target,
-        before: canvasData[target.y][target.x],
-        after: color
+      this.UndoHistoryHandle({
+        action: "push",
+        data: {
+          target: target,
+          before: canvasData[target.y][target.x],
+          after: color
+        }
       });
+      this.RedoHistoryHandle({ action: "clear" });
 
       canvasData[target.y][target.x] = color;
       this.setArtworkInfo({ canvasData });
     },
     push(flag) {
       console.log(`${flag ? "开始" : "结束"}绘制`);
-      let target = {
-        x: this.viewportOffset.x + this.currentOffset.x,
-        y: this.viewportOffset.y + this.currentOffset.y
-      };
+      if (flag) {
+        let target = {
+          x: this.viewportOffset.x + this.currentOffset.x,
+          y: this.viewportOffset.y + this.currentOffset.y
+        };
 
-      this.draw(target, this.artwork.currentBrushColor);
+        this.draw(target, this.artwork.currentBrushColor);
+      }
       this.setPushing(flag);
     },
-    ...mapMutations(["setArtworkInfo", "setPushing", "pushHistory"])
+    ...mapMutations([
+      "setArtworkInfo",
+      "setPushing",
+      "UndoHistoryHandle",
+      "RedoHistoryHandle"
+    ])
   }
 };
 </script>
