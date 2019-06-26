@@ -38,11 +38,11 @@ export const saveArtwork = artwork => {
   return LocalStorage.set(ARTWORK_KEY, artworks)
 }
 
-export const deleteArtwork = artwork => {
+export const deleteArtwork = id => {
   let artworks = LocalStorage.get(ARTWORK_KEY, [])
 
   deleteFromArray(artworks, item => {
-    return item.id === artwork.id
+    return item.id === id
   })
 
   return LocalStorage.set(ARTWORK_KEY, artworks)

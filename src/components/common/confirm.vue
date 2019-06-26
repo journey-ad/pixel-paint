@@ -33,6 +33,7 @@ export default {
 <style lang="scss" scoped>
 .confirm {
   position: fixed;
+  z-index: 999;
   width: 315px;
   display: flex;
   flex-direction: column;

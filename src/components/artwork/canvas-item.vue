@@ -1,5 +1,12 @@
 <template>
-  <div class="item" @click="initCanvasInfo">
+  <div
+    class="item"
+    :class="{active: isActive}"
+    @click="initCanvasInfo"
+    :data-id="artwork.id"
+    ref="items"
+    v-touch:swipe="swipeHandler"
+  >
     <div class="thumb" :style="{backgroundImage: `url('${artwork.thumb}'`}"></div>
     <div class="info">
       <div class="title">{{artwork.title}}</div>
@@ -9,6 +16,14 @@
       </div>
       <canvas class="color-chip" ref="colorChip"></canvas>
     </div>
+    <div class="action">
+      <div class="btn rename" @click.stop="renameArtwork">
+        <icon class="icon" name="rename"></icon>
+      </div>
+      <div class="btn delete" @click.stop="deleteArtwork">
+        <icon class="icon" name="clear"></icon>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,7 +32,9 @@ import { mapMutations } from "vuex";
 import moment from "moment";
 export default {
   data() {
-    return {};
+    return {
+      isActive: false
+    };
   },
   props: ["artwork"],
   methods: {
@@ -55,6 +72,21 @@ export default {
     formatDate(ts) {
       return moment(ts).format("YYYY-MM-DD HH:mm:ss");
     },
+    swipeHandler(direction) {
+      if (direction === "left") {
+        this.isActive = true;
+      } else if (direction === "right") {
+        this.isActive = false;
+      }
+    },
+    deleteArtwork() {
+      this.isActive = false;
+      this.$emit("onDeleteArtwork", this.artwork.id);
+    },
+    renameArtwork(){
+      this.isActive = false;
+      this.$emit("onRenameArtwork", this.artwork.id);
+    },
     ...mapMutations(["setArtworkInfo"])
   },
   mounted() {
@@ -72,6 +104,7 @@ export default {
   background-color: $white-color;
   border: 1px solid $item-color;
   box-sizing: border-box;
+  transition: transform 0.1s;
   .thumb {
     width: 80px;
     height: 80px;
@@ -97,6 +130,40 @@ export default {
       bottom: 0;
       width: 272px;
       height: 16px;
+    }
+  }
+  &.active {
+    transform: translateX(-120px);
+    .action {
+      display: flex;
+    }
+  }
+  .action {
+    display: none;
+    position: absolute;
+    left: 100%;
+    height: 80px;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    .btn {
+      display: flex;
+      width: 60px;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        width: 26px;
+        height: 26px;
+        color: $white-color;
+      }
+    }
+    .rename {
+      background: $background-color-warn;
+    }
+    .delete {
+      background: $background-color-danger;
     }
   }
 }
