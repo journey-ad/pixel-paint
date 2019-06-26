@@ -84,6 +84,8 @@ export default {
     height: 32px;
     background: $item-color;
     background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
     margin: 0 4px;
     border: 1px solid $black-color;
   }

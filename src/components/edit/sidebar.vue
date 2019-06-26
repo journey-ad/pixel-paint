@@ -109,12 +109,12 @@ export default {
           if (flag) this.$emit("exportArtwork");
           break;
 
-        case 'clear':
+        case "clear":
           if (flag) this.$emit("clearArtwork");
           break;
       }
-      this.action=''
-      this.confirmContext=''
+      this.action = "";
+      this.confirmContext = "";
     },
     hideSidebar() {
       this.setRenameShow(false);
@@ -170,6 +170,8 @@ export default {
         height: 78px;
         margin: 4px;
         background-size: contain;
+        background-repeat: no-repeat;
+        image-rendering: pixelated;
       }
       .info {
         flex: 1;

@@ -110,6 +110,8 @@ export default {
     height: 80px;
     background-color: #eee;
     background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated
   }
   .info {
     position: relative;
