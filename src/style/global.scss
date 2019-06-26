@@ -12,6 +12,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   background: $background-color;
   overscroll-behavior: none; // 禁止 Chrome 63+ 的下拉刷新行为
+  image-rendering: pixelated; // 使用符合像素风格的临近算法渲染页面
 }
 
 *,
