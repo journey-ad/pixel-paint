@@ -9,6 +9,7 @@
       @toggleSidebarShow="toggleSidebarShow"
       @saveArtwork="save"
       @exportArtwork="exportArtwork"
+      @clearArtwork="clearArtwork"
     ></sidebar>
     <comfirm
       v-show="confirm.show"
@@ -87,6 +88,11 @@ export default {
 
       this.downloadImage(img, name);
     },
+    clearArtwork() {
+      this.artwork.canvasData = Array(this.artwork.size)
+        .fill()
+        .map(() => Array(this.artwork.size).fill("#ffffff"));
+    },
     downloadImage(url, name) {
       const a = document.createElement("a");
       a.href = url;
@@ -113,6 +119,7 @@ export default {
 
     if (flag) {
       clearInterval(this.timer);
+      this.save();
       this.setArtworkInfo(null);
       next();
     } else if (this.confirm.closeable === null) {

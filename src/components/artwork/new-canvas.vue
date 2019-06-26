@@ -184,8 +184,10 @@ export default {
         created: Date.now(),
         updated: Date.now(),
         brush: this.brush,
-        canvasData: [],
-        thumb: ''
+        canvasData: Array(+this.size)
+          .fill()
+          .map(() => Array(+this.size).fill("#ffffff")),
+        thumb: ""
       });
       this.$router.push({
         path: "/edit"

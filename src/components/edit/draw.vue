@@ -185,7 +185,7 @@ export default {
       for (let x = 0; x < this.canvasData.length; x++) {
         for (let y = 0; y < this.canvasData[x].length; y++) {
           // 逐行逐列遍历点
-          let color = this.canvasData[x][y]; // 取到色值
+          let color = this.canvasData[x][y] || '#ffffff'; // 取到色值
 
           this.ctx.fillStyle = color; // 设置填充颜色
           this.ctx.fillRect(offset_x, offset_y, 1, 1); // 填充一个像素

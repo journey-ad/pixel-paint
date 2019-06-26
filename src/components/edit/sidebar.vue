@@ -32,7 +32,7 @@
       <confirm
         v-if="isConfirmShow"
         title="Confirm"
-        content="Do you want to export the artwork?"
+        :content="confirmContext"
         @return="confirmReturn"
       ></confirm>
     </div>
@@ -50,6 +50,8 @@ export default {
     return {
       isRenameShow: false,
       isConfirmShow: false,
+      confirmContext: "",
+      action: "",
       menu: [
         {
           icon: "rename",
@@ -85,10 +87,16 @@ export default {
           this.setRenameShow(true);
           break;
         case "clear":
+          console.log("clear");
+          this.isConfirmShow = true;
+          this.action = "clear";
+          this.confirmContext = "!!! Do you want to clear the artwork? !!!";
           break;
         case "export":
           console.log("export");
           this.isConfirmShow = true;
+          this.action = "export";
+          this.confirmContext = "Do you want to export the artwork?";
           break;
         case "share":
           break;
@@ -96,7 +104,17 @@ export default {
     },
     confirmReturn(flag) {
       this.isConfirmShow = false;
-      if (flag) this.$emit("exportArtwork");
+      switch (this.action) {
+        case "export":
+          if (flag) this.$emit("exportArtwork");
+          break;
+
+        case 'clear':
+          if (flag) this.$emit("clearArtwork");
+          break;
+      }
+      this.action=''
+      this.confirmContext=''
     },
     hideSidebar() {
       this.setRenameShow(false);
