@@ -1,6 +1,7 @@
 # 像素绘板
 
 [![Build Status](https://www.travis-ci.org/journey-ad/pixel-paint.svg?branch=master)](https://www.travis-ci.org/journey-ad/pixel-paint)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjourney-ad%2Fpixel-paint.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjourney-ad%2Fpixel-paint?ref=badge_shield)
 
 ## 开坑中
 
@@ -44,3 +45,7 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjourney-ad%2Fpixel-paint.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjourney-ad%2Fpixel-paint?ref=badge_large)
