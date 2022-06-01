@@ -30,7 +30,7 @@
     "postcss-px-to-viewport": "^1.1.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
-    "sharp": "^0.22.1",
+    "sharp": "^0.30.5",
     "vue-svg-icon": "^1.2.9",
     "vue-template-compiler": "^2.6.10"
   }
